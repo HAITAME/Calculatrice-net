@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace calculatrice
 {
-    public partial class Form1 : Form
+    public partial class Calculatrice : Form
     {
-        public Form1()
+        public Calculatrice()
         {
             InitializeComponent();
         }
@@ -20,39 +20,75 @@ namespace calculatrice
         private void button1_Click(object sender, EventArgs e)
         {
             Button button = (Button)sender;
-            if(button.Text == "CE")
+
+            /*
+                        if(button.Text == "CE")
+                        {
+                            Resultat.Text = "0";
+
+                        }
+                        else if (button.Text == "=")
+                        {
+
+                            try
+                            {
+                                object result = new DataTable().Compute(Resultat.Text, null);
+                                Resultat.Text = result.ToString();
+                            }
+                            catch (Exception ex)
+                            {
+                                // Affiche un message en cas d'erreur lors de l'évaluation de l'expression
+                                Resultat.Text = "Erreur : "+ex;
+                            }
+
+                        }
+                        else if (button.Text == "×")
+                        {
+
+                            Resultat.Text += "*";
+
+                        }
+                        else if (button.Text == "÷")
+                        {
+
+                            Resultat.Text += "/";
+
+                        }
+                        else { 
+                                if (Resultat.Text == "0")
+                                {
+                                    Resultat.Text = button.Text;
+                                }
+                                else
+                                {
+                                    Resultat.Text += button.Text;
+                                }
+
+                        }
+            */
+            switch (button.Text)
             {
-                Resultat.Text = "0";
-
-            }
-            else if (button.Text == "=")
-            {
-               
-                try
-                {
-                    object result = new DataTable().Compute(Resultat.Text, null);
-                    Resultat.Text = result.ToString();
-                }
-                catch (Exception ex)
-                {
-                    // Affiche un message en cas d'erreur lors de l'évaluation de l'expression
-                    Resultat.Text = "Erreur : "+ex;
-                }
-
-            }
-            else if (button.Text == "×")
-            {
-
-                Resultat.Text += "*";
-
-            }
-            else if (button.Text == "÷")
-            {
-
-                Resultat.Text += "/";
-
-            }
-            else { 
+                case "CE":
+                    Resultat.Text = "0";
+                    break;
+                case "=":
+                    try
+                    {
+                        object result = new DataTable().Compute(Resultat.Text, null);
+                        Resultat.Text = result.ToString();
+                    }
+                    catch (Exception ex)
+                    {
+                        Resultat.Text = "Erreur : " + ex;
+                    }
+                    break;
+                case "×":
+                    Resultat.Text += "*";
+                    break;
+                case "÷":
+                    Resultat.Text += "/";
+                    break;
+                default:
                     if (Resultat.Text == "0")
                     {
                         Resultat.Text = button.Text;
@@ -61,8 +97,9 @@ namespace calculatrice
                     {
                         Resultat.Text += button.Text;
                     }
-
+                    break;
             }
+
         }
 
         private void Form1_Load(object sender, EventArgs e)
