@@ -40,6 +40,18 @@ namespace calculatrice
                 }
 
             }
+            else if (button.Text == "×")
+            {
+
+                Resultat.Text += "*";
+
+            }
+            else if (button.Text == "÷")
+            {
+
+                Resultat.Text += "/";
+
+            }
             else { 
                     if (Resultat.Text == "0")
                     {
