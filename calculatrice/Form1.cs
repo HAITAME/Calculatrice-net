@@ -38,7 +38,7 @@ namespace calculatrice
                             catch (Exception ex)
                             {
                                 // Affiche un message en cas d'erreur lors de l'évaluation de l'expression
-                                Resultat.Text = "Erreur : "+ex;
+                                Resultat.Text = "Erreur ";
                             }
 
                         }
@@ -79,7 +79,7 @@ namespace calculatrice
                     }
                     catch (Exception ex)
                     {
-                        Resultat.Text = "Erreur : " + ex;
+                        Resultat.Text = "Math Erreur ";
                     }
                     break;
                 case "×":
